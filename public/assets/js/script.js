@@ -1,5 +1,12 @@
 const notesArray = [];
-const addNoteEl = document.querySelector('#add-note');
+const addNoteEl = document.getElementById('add-note');
+const saveNoteEl = document.getElementById("save-note");
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 function getNotes () {
     fetch('/api/notes')
@@ -60,32 +67,69 @@ function populateMainNote(note) {
 }
 
 function createNewNote() {
-    console.log("new note creation request, write POST fetch here");
+    const noteTitleEl = document.getElementById("note-title-edit");
+    const noteBodyEl = document.getElementById("note-body");
+    
+    noteTitleEl.value = "";
+    noteBodyEl.value = "";
+    saveNoteAppear();
+    inputAppear();
 }
 
+function saveNote() {
+    console.log("note save requested write POST fetch here");
+}
 
+function saveNoteAppear() {
+    saveNoteEl.classList.remove("d-none");
+}
+
+function saveNoteDisappear(){
+    saveNoteEl.setAttribute("class", "d-none");
+}
+
+function inputAppear () {
+    const noteTitleEl = document.getElementById("note-title-edit");
+    const noteBodyEl = document.getElementById("note-body");
+
+    noteTitleEl.classList.remove("d-none");
+    noteBodyEl.classList.remove("d-none");
+}
+
+function inputDisappear () {
+    const noteTitleEl = document.getElementById("note-title-edit");
+    const noteBodyEl = document.getElementById("note-body");
+
+    noteTitleEl.setAttribute("class", "d-none");
+    noteBodyEl.setAttribute("class", "d-none");
+}
 
 document.body.addEventListener('click', event => {
     const eventClass = event.target.className;
-    if (eventClass !== "note-info" && eventClass !== "note-title" && eventClass !== "delete-button" && event.target.id !== "save-note") {
+
+    if (eventClass !== "note-info" && eventClass !== "note-title" && eventClass !== "delete-button") {
       return
     }
     if (eventClass === "note-info") {
         populateMainNote(notesArray[event.target.id]);
+        saveNoteAppear();
+        inputAppear();
     }
 
     if (eventClass === "note-title") {
-        console.log("note-title clicked!");
+        populateMainNote(notesArray[event.target.parentElement.id]);
+        saveNoteAppear();
+        inputAppear();
     }
 
     if (eventClass === "delete-button") {
         console.log("delete-button clicked!");
-    }
-    
-    if (event.target.id === "save-note") {
-        console.log("save-button clicked!");
-    }
+        saveNoteDisappear();
+        inputDisappear();
+    }    
   }  
 )
+
 addNoteEl.addEventListener('click', createNewNote);
+saveNoteEl.addEventListener('click', saveNote);
 getNotes();

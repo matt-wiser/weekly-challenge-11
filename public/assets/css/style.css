@@ -9,16 +9,21 @@ nav h2{
  margin: 8px 0 4px 25px;
 }
 
+nav a:nth-child(2) {
+    margin-left: auto;
+}
+
+main {
+    padding: 0 !important;
+}
+
 #add-note {
     margin-right: 25px;
     margin-left: 50px;
 }
 
-#save-note {
-    margin-left: auto;
-}
 
-#add-note img, #save-note img{
+#add-note, #save-note{
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
     height: 60px;
     width: 60px;
