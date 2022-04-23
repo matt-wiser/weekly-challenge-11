@@ -56,7 +56,7 @@ function populateMainNote(note) {
     noteTitleEl.value = note.title;
     noteTitleEl.dataset.id = note.id;
 
-    noteBodyEl.value = note.body;    
+    noteBodyEl.value = note.body;
 }
 
 function createNewNote() {
