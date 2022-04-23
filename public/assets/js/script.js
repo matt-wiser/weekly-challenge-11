@@ -22,12 +22,13 @@ function getNotes () {
             notes.forEach(note => {
                 notesArray.push(note);
             });
-            populateNotes(notes);
+            populateNotes(notesArray);
         })
 }
 
 function populateNotes(notes) {
     const noteContainerEl = document.getElementById("notes-container");
+    removeAllChildNodes(noteContainerEl);
 
     notes.forEach(note => {
     
@@ -77,7 +78,36 @@ function createNewNote() {
 }
 
 function saveNote() {
-    console.log("note save requested write POST fetch here");
+    const noteTitleEl = document.getElementById("note-title-edit");
+    const noteBodyEl = document.getElementById("note-body");
+    const note = {
+        title:  noteTitleEl.value,
+        body: noteBodyEl.value
+    }
+    // check if note title has data-attribute-id, if so send request to update; conditionally add the id as well.
+    
+    fetch('/api/notes', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(note)
+      })
+      .then(response =>{
+          if (response.ok) {
+              return response.json();
+          }
+          alert("Error: " + response.statusText);
+      })
+      .then(postResponse => {
+          populateNotes(postResponse);
+          notesArray.push(postResponse[postResponse.length - 1]);
+      })
+}
+
+function updateNote() {
+
 }
 
 function saveNoteAppear() {
@@ -94,6 +124,11 @@ function inputAppear () {
 
     noteTitleEl.classList.remove("d-none");
     noteBodyEl.classList.remove("d-none");
+}
+
+function deleteNote() {
+    saveNoteDisappear();
+    inputDisappear();
 }
 
 function inputDisappear () {
@@ -124,8 +159,7 @@ document.body.addEventListener('click', event => {
 
     if (eventClass === "delete-button") {
         console.log("delete-button clicked!");
-        saveNoteDisappear();
-        inputDisappear();
+        deleteNote();
     }    
   }  
 )
