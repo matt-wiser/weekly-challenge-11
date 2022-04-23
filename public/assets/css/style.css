@@ -11,26 +11,44 @@ nav h2{
 
 #add-note {
     margin-right: 25px;
+    margin-left: 50px;
 }
 
-#add-note img{
+#save-note {
+    margin-left: auto;
+}
+
+#add-note img, #save-note img{
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
     height: 60px;
     width: 60px;
 }
 
 .note-info{
-
+    display: flex;
+    justify-content: space-between;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+    padding: 20px;
 }
 
 .note-title {
-    
+
 }
 
-.note-info a{
-    
+
+.delete-button {
+    filter: invert(45%) sepia(90%) saturate(3475%) hue-rotate(336deg) brightness(89%) contrast(107%);
 }
 
-.note-info a img {
+#note-title-edit {
+    height: 10vh;
+    width: 100%;
+}
 
+#note-body {
+    height: 90vh;
+    width: 100%;
+    resize: none;
 }

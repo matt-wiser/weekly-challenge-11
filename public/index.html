@@ -11,17 +11,25 @@
 <body>
     <nav>
         <h2>NOTE TAKER</h2>
+        <a href="#" id="save-note"><img src="./assets/img/check.svg" alt="Add a new note" class="icon"></a>
         <a href="#" id="add-note"><img src="./assets/img/plus.svg" alt="Add a new note" class="icon"></a>
     </nav>
     
     <main class="container-fluid">
-        <section class="col-3" id="notes-container">
+        <div class="row">
+            <section class="col-3" id="notes-container">
 
-        </section>
+            </section>
 
-        <section class="col-9" id="note-content">
-
-        </section>
+            <section class="col-9" id="note-content">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="note-title-edit" placeholder="Enter your note title here">
+                        <textarea class="form-control" id="note-body" placeholder="Enter your note content here"></textarea>
+                    </div>
+                </form>
+            </section>
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
