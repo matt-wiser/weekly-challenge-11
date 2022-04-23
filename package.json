@@ -1,4 +1,23 @@
 {
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "nodemon": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-wiser/weekly-challenge-11.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matt-wiser/weekly-challenge-11/issues"
+  },
+  "homepage": "https://github.com/matt-wiser/weekly-challenge-11#readme",
   "dependencies": {
     "express": "^4.17.3"
   },

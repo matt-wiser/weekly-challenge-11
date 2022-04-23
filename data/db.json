@@ -1,0 +1,9 @@
+{
+    "notes": [
+        {"title": "note1", "body": "lorem ipsum dolor sit amet", "id": "0"},
+        {"title": "note2", "body": "lorem ipsum dolor sit amet", "id": "1"},
+        {"title": "note3", "body": "lorem ipsum dolor sit amet", "id": "2"},
+        {"title": "note4", "body": "lorem ipsum dolor sit amet", "id": "3"},
+        {"title": "note5", "body": "lorem ipsum dolor sit amet", "id": "4"}
+    ]
+}

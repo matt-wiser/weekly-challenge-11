@@ -1,3 +1,36 @@
 nav{
-    background-color: aquamarine;
+    background-color: cornflowerblue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav h2{
+ margin: 8px 0 4px 25px;
+}
+
+#add-note {
+    margin-right: 25px;
+}
+
+#add-note img{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    height: 60px;
+    width: 60px;
+}
+
+.note-info{
+
+}
+
+.note-title {
+    
+}
+
+.note-info a{
+    
+}
+
+.note-info a img {
+
 }
